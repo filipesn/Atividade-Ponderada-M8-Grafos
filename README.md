@@ -1,6 +1,6 @@
 # Atividade-Ponderada-M8-Grafos
 
-Atividade de Grafos.
+Atividade de Grafos. Feito por Filipe Nunes
 
 Primeira coisa feita foi pegar meu RA
 
@@ -60,3 +60,73 @@ Agora vamos fazer o grafo
 Eu fiz o desenho. Está como "grafo.png" no repositorio
 
 Apos isso eu fiz a matriz. Está salvo como matriz.jpeg
+
+
+Agora vamos olhar o codigo.
+
+Está coerente. Vamos botar para rodar.
+
+De origem 0,
+
+Shortest paths: {0: 0, 1: 13, 2: 16, 3: 25, 4: 31, 5: 30, 6: 39, 7: 48}
+
+Vamos observar se é coerente manualmente
+
+0, esse é obiviamente 0, começando de 0
+
+1, 13, caminho direto
+
+2, 16, caminho direto
+
+3, 25. Se fazemos na mão, da para ver s0, s1, s3 o melhor caminho, sendo 13 + 12
+
+4, 31. Se fazemos na mão, da para ver s0, s2, s4 o melhor caminho, sendo 16 + 15
+
+5, 30. Se fazemos na mão, da para ver s0, s2, s6 o melhor caminho, sendo 16 + 14,
+
+6, 39. Se fazemos na mão, da para ver s0, s1, s3, s6 o melhor caminho, sendo 13 + 12 + 14,
+
+7, 48. Se fazemos na mão, da para ver s0, s2, s4, s7 o melhor caminho, sendo 16 + 15 + 17. Esse não é immediatamente óbvio!
+
+Agora, vamos rodar o Prim.
+
+Pegei de https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.tree.mst.minimum_spanning_edges.html
+
+[[0, 1], [1, 2], [1, 3], [3, 4], [3, 6], [4, 5], [6, 7]]
+
+Funcionou.
+
+Agora vamos responder as peguntas
+
+
+0, esse é obiviamente 0, começando de 0
+
+1, 13, caminho direto
+
+2, 16, caminho direto
+
+3, 25. Se fazemos na mão, da para ver s0, s1, s3 o melhor caminho, sendo 13 + 12
+
+4, 31. Se fazemos na mão, da para ver s0, s2, s4 o melhor caminho, sendo 16 + 15
+
+5, 30. Se fazemos na mão, da para ver s0, s2, s6 o melhor caminho, sendo 16 + 14,
+
+6, 39. Se fazemos na mão, da para ver s0, s1, s3, s6 o melhor caminho, sendo 13 + 12 + 14,
+
+7, 48. Se fazemos na mão, da para ver s0, s2, s4, s7 o melhor caminho, sendo 16 + 15 + 17. Esse não é immediatamente óbvio!
+
+
+Removendo a aresta e5, o menor custo começando de 0 agora é
+
+Shortest paths: {0: 0, 1: 13, 2: 16, 3: 25, 4: 33, 5: 30, 6: 39, 7: 50}
+
+Temos mudanças para chegar em 3, 4, 6 e 7.
+
+
+A soma total da saída [[0, 1], [1, 2], [1, 3], [3, 4], [3, 6], [4, 5], [6, 7]] é 75. Ou seja, o custo mínimo para ligar todos é 75.
+
+Podemos ver que esse valor é maior que o do dikstra. Tambem podemos ver que se seguimos ele, nem sempre vamos pegar o menor caminho para uma vértice especifica. Isso é porque eles tem objetivos diferentes, dijikstra que achar o menor caminho possivel, ja prim que ligar todos pontos com o menor peso global possivel.
+
+
+
+Ao avaliar, lembre que o grafo, a matriz, e a visualização da saída do prim estão salvos como imagens nesse repositorio. Basta achar eles nos arquivos.
